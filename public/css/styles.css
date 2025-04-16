@@ -1,0 +1,90 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header,
+footer {
+    background-color: rgb(149, 182, 217);
+    padding: 0.2rem;
+    text-align: center;
+}
+
+.h-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline;
+    padding-right: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 2rem;
+}
+
+h1,
+h2 {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+h1 a {
+    color: #000;
+    text-decoration: none;
+}
+
+h2 {
+    padding-top: 1rem;
+}
+
+main {
+    background-color: #fff;
+    max-width: 50rem;
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+}
+
+/* css for bigger screens */
+@media only screen and (min-width: 50rem) {
+    .h-container {
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+
+    nav a {
+        font-size: 1.3rem;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.8rem;
+    }
+}
