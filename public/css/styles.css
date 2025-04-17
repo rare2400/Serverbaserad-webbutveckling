@@ -19,6 +19,10 @@ footer {
     align-items: center;
 }
 
+.container {
+    height: 100%;
+}
+
 nav {
     text-align: center;
 }
@@ -40,7 +44,7 @@ nav a {
     font-weight: 700;
 }
 
-nav a:hover {
+nav a:hover, h1 a:hover {
     color: #fff;
     text-decoration: underline;
 }
@@ -64,12 +68,113 @@ h2 {
     padding-top: 1rem;
 }
 
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
 main {
     background-color: #fff;
     max-width: 50rem;
     margin: 0 auto;
     width: 100%;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+}
+
+main table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.about {
+    padding: 0 1rem 1rem;
+    margin-top: 1rem;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+th {
+    text-align: left;
+}
+
+th,
+td {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding: 10px;
+}
+
+.progr {
+    text-align: center;
+}
+
+.delete-btn {
+    color: #000;
+    font-size: 0.8rem;
+}
+
+.delete-btn:hover,
+table a:hover {
+    color: rgb(149, 182, 217);
+    cursor: pointer;
+}
+
+form {
+    margin: 1rem auto 2rem;
+    max-width: 90%;
+    padding-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="url"],
+select,
+.submit-btn {
+    height: 1.3rem;
+    margin: 0.5rem auto 1.5rem;
+    border: 1px solid rgb(200, 200, 200);
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="url"] {
+    width: 100%;
+}
+
+select {
+    margin-left: 0;
+}
+
+label {
+    text-align: left;
+}
+
+.submit-btn {
+    width: 70%;
+    height: 3rem;
+    background-color: rgb(149, 182, 217);
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+    background-color: rgba(149, 182, 217, 0.576);
+}
+
+.btn {
+    text-align: center;
+}
+
+.posted {
+    text-align: center;
+    font-weight: 700;
 }
 
 /* css for bigger screens */
@@ -86,5 +191,18 @@ main {
     h1,
     h2 {
         font-size: 1.8rem;
+    }
+
+    .submit-btn {
+        width: 50%;
+    }
+
+    main table,
+    .delete-btn {
+        font-size: 1rem;
+    }
+
+    td {
+        padding: 1.2rem 1rem;
     }
 }
