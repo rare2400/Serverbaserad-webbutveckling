@@ -23,6 +23,9 @@
     <div class="container">
         <main>
             <h2>Kurser</h2>
+            <% if(rows.length===0) { %>
+                <p class="error">Inga kurser hittades.</p>
+                <% } else { %>
                     <div class="table-container">
                         <table>
                             <thead>
@@ -36,11 +39,31 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <% rows.forEach(course=> { %>
                                     <tr>
+                                        <td>
+                                            <%= course.CourseCode %>
+                                        </td>
+                                        <td>
+                                            <%= course.CourseName %>
+                                        </td>
+                                        <td>
+                                            <a href="<%= course.Syllabus %>" target="_blank">Kursplan</a>
+                                        </td>
+                                        <td class="progr">
+                                            <%= course.Progression %>
+                                        </td>
+                                        <td>
+                                            <%= course.Created %>
+                                        </td>
+                                        <td>
+                                            <a href="/deletecourse/<%=course.CourseID %>" class="delete-btn">Radera</a>
+                                        </td>
                                     </tr>
+                                    <% }) %>
                             </tbody>
                         </table>
-
+                        <% } %>
                     </div>
 
         </main>
