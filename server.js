@@ -8,7 +8,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 
 //använder sqlite som databas
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('sqlite3');
 
 //skapar databasen cv.db
 const db = new sqlite3.Database("./db/cv.db", (err) => {

@@ -3,7 +3,7 @@
  * rare2400
  */
 
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('sqlite3');
 
 //skapar databasen
 const db = new sqlite3.Database("./db/cv.db", (err) => {
