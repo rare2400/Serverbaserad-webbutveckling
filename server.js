@@ -113,6 +113,21 @@ app.post("/addcourse", (req, res) => {
     }
 });
 
+//ta bort kurs baserat på id
+app.get("/deletecourse/:id", (req, res) => {
+    const id = req.params.id;
+
+    //tar bort kurs vars id matchar tabellen
+    db.run("DELETE FROM courses WHERE CourseID = ?;", id, (err) => {
+        if(err) {
+            //felmeddelande i konsoll
+            console.error(err.message);
+        }
+        //redirect till startsidan
+        res.redirect("/");
+    });
+});
+
 //om-sidan
 app.get("/about", (req, res) => {
     res.render("about");
