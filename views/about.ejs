@@ -21,8 +21,45 @@
         </div>
     </header>
     <div class="container">
-        <main>
-            <h2>Moment 1</h2>
+        <main class="about">
+            <h2>Moment 1</h1>
+                <p>
+                    Den här webbplatsen ger möjlighet till att få en överblick över vilka kurser som man har läst. På
+                    startsidan finns en tabell som visar kurserna med information som namn, kurskod, progression och en
+                    länk till kursplanen. I navigerngsmenyn finns en länk till en sida med ett formulär som man kan
+                    fylla i för att lägga till kurser i tabellen som finns på startsidan. Varje fält i formuläret fyllas
+                    i, annars kommer ett felmeddelande på sidan som säger till användaren att alla fält ska fyllas i.
+                    När man trycker på knappen "Lägg till" så kommer en text upp om att kursen lagts till i tabellen.
+                    Även nodemon har använts i utvecklingen av uppgiften för att enkelt kunna uppdatera kod och sidan
+                    direkt när man sparar koden.
+                </p>
+
+                <p>
+                    När webbplatsen utvecklas används Node.js och npm-paketen express, EJS och sqlite3 som används som
+                    databas. Databasen som används är en SQLite-databas och den skapas en install.js fil som körs och
+                    skapar tabellen som ska innehålla informationen om kurserna sedan skrivs ut. Sedan skapas en
+                    server.js-fil där man skapar webbservern med dess inställningar, body-parser för formulärinläsning
+                    och databasen för tabellen. Startidans routing gör att innehållet i databasens tabell skrivs ut och
+                    index.ejs läggs till i katalogen "views", där alla ejs-filer placeras. I EJS-filen skrivs grunden av
+                    HTML-koden och sedan skrivs ejs-koden som hanterar vyn med hjälp av JavaScript i form av exemeplvis
+                    if-satser och loopar.
+                </p>
+
+                <p>
+                    De andra sidorna för att lägga till kurser och denna sidan (om) får samma
+                    HTML-grund och sedan läggs formuläret till i "addcourse.ejs". Funktionen för att läsa in innehållet
+                    i formuläret och lägga till det i databasens tabell skrivs in genom "add.post" och sql-kod. En
+                    funktion för att kunna radera kurser adderas också, genom att ta in den valda kursens ID och använda
+                    sql-kod som raderar kursen från tabellen i databasen. CSS-filen med webbplatsens styling lägg under
+                    "public" som hanterar statiska filer och gör webbplatsen responsiv. 
+                </p>
+
+                <p>
+                    Slutsatsen jag kan dra från denna uppgift är att den har varit lärorik. Den har även gett mig en god
+                    uppfattning av hur man kan använda en webbserver och databas för att skapa och spara information
+                    i en webbapplikation. I arbetet med uppgiften har jag även lärt mig hur man kan ta in formulärdata
+                    med hjälp av metoden "post", samt lägga till och ta bort datan i en databas.
+                </p>
 
         </main>
     </div>
