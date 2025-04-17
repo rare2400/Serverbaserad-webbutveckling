@@ -46,6 +46,78 @@ app.get("/", (req, res) => {
     });
 });
 
+//Formulärsida
+app.get("/addcourse", (req, res) => {
+    res.render("addcourse", {
+        errors: [],
+        newCourseCode: "",
+        newCourseName: "",
+        newSyllabus: "",
+        newProgression: "",
+        posted: ""
+    });
+});
+
+//Formulärsida - post för att lägga till kurser
+app.post("/addcourse", (req, res) => {
+    //hämtar värdena från formuläret
+    const newCourseCode = req.body.newCourseCode;
+    const newCourseName = req.body.newCourseName;
+    const newSyllabus = req.body.newSyllabus;
+    const newProgression = req.body.newProgression;
+    const errors = [];
+
+    //validering - tomt fält = felmeddelande
+    if (newCourseCode === "" || newCourseName === "" || newSyllabus === "" || newProgression === "") {
+        errors.push("Alla fält måste vara ifyllda!");
+    };
+
+    //vid felmeddelande renderas formuläret igen med den ifyllda värdena kvar
+    if (errors.length > 0) {
+        return res.render("addcourse", {
+            errors: errors,
+            newCourseCode,
+            newCourseName,
+            newSyllabus,
+            newProgression,
+            posted: ""
+        });
+
+    } else {
+        //kursen läggs till i databasrn om allt är korrekt
+        db.run(`INSERT INTO courses (courseCode, courseName, syllabus, progression) 
+        VALUES (?, ?, ?, ?)`, [newCourseCode, newCourseName, newSyllabus, newProgression], function (err) {
+            if (err) {
+                //felmeddeland vod fel av insättning i tabell
+                console.error(err.message);
+                return res.render("addcourse", {
+                    errors: ["Kursen kunde inte läggas till, försök igen."],
+                    newCourseCode: "",
+                    newCourseName: "",
+                    newSyllabus: "",
+                    newProgression: "",
+                    posted: ""
+                });
+            }
+
+            //formulär töms och bekräftelse skrivs ut när kursen lagts till
+            res.render("addcourse", {
+                errors: [],
+                newCourseCode: "",
+                newCourseName: "",
+                newSyllabus: "",
+                newProgression: "",
+                posted: "Kursen är tillagd!"
+            });
+        });
+    }
+});
+
+//om-sidan
+app.get("/about", (req, res) => {
+    res.render("about");
+});
+
 //startar servern
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
